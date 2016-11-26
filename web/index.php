@@ -7,5 +7,4 @@ require __DIR__.'/../app/config/dev.php';
 require __DIR__.'/../app/app.php';
 require __DIR__.'/../app/routes.php';
 
-$app['debug'] = true;
 $app->run();
