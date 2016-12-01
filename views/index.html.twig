@@ -1,1 +1,155 @@
 {% extends "base.html" %}
+{% block title %}L'application{% endblock %}
+{% block content %}
+    <!-- Page Content -->
+        <div class="featurette-logo">
+            <div class="col-lg-12">
+                <img class="logo" src="/img/logo-push.png" width="135px" height="160px">
+            </div>
+        </div>
+        <!-- First Featurette -->
+        <div class="featurette">
+            <div class="col-lg-5">
+                <img class="featurette-image img-responsive pull-left" src="/img/Jean-Kevin-Toilettes.png" width="500px" height="500px">
+            </div>
+
+             <div class="col-lg-7">
+                 <h1 class="featurette-heading">Il était une fois, Jean Kevin, 20 ans.</h1>
+                 <p class="texte-slide">Tous les matins Jean Kevin passe 15 minutes à jouer sur <br /> Candy Crush aux toilettes et tous les matins Jean Kevin <br /> arrive avec 15 min de retard à l’école.</p>
+
+             </div>
+        </div>
+        <hr class="featurette-divider">
+
+        <!-- Second Featurette -->
+        <div class="featurette">
+            <div class="col-lg-7">
+                <h1 class="featurette-heading">50 repas, 50 photos !</h1>
+                <p class="texte-slide">Tous les midis Jean Kevin prend une photo de son <br /> repas, et un midi le téléphone de Jean Kevin lui glisse <br /> des mains. </p>
+            </div>
+            <div class="col-lg-5">
+                <img class="featurette-image img-responsive pull-right" src="/img/telephone-slide2.png" width="500px" height="500px">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Third Featurette -->
+        <div class="featurette">
+            <div class="col-lg-5">
+                <img class="featurette-image img-responsive pull-left" src="/img/repas-de-famille.png" width="500px" height="500px">
+            </div>
+            <div class="col-lg-7">
+                <h1 class="featurette-heading">Repas de Famille</h1>
+                <p class="texte-slide">Tous les soirs Jean Kevin mange avec ses Parents, <br /> mais trop occupé à envoyer des emojis à ses potes,<br /> il ne leur adresse même pas la parole. </p>
+            </div>
+
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Four Featurette -->
+        <div class="featurette">
+            <div class="col-lg-7 vcenter">
+                <h1 class="featurette-heading">En moyenne Jean Kevin passe 8h de sa journée sur son téléphone. </h1>
+                <p class="texte-slide">En 8h Jean Kevin aurait pu faire : <br/>
+                    Paris/New-York <br />
+                    960 cookies avec ses amis <br/>
+                    5 matchs de foot en ligue 1 <br/>
+                    69 speed dating</p>
+                <p class="texte-slide">SOUHAITEZ-VOUS ÊTRE COMME JEAN KEVIN ?</p>
+                <button type="submit" class="btn btn-default">Oui</button> <button type="submit" class="btn btn-default">Non</button>
+            </div>
+            <div class="col-lg-5 vcenter">
+                <img class="featurette-image img-responsive pull-right" src="/img/Jean-Kevin.png" width="500px" height="500px">
+            </div>
+        </div>
+
+        <!-- Five Featurette -->
+        <div class="featurette application">
+            <div class="col-lg-12">
+                <h1 class="Title-application">Grâce à vous Jean Kevin à découvert l'application "PUSH"</h1>
+                <button class="btn btn-default btn-xs" ><a href="#"> LIEN VIDEO </a></button>
+            </div>
+            <div class="col-lg-4 fonctionnality">
+                <div class="blocLeft">
+                    <div>
+                        <div>image</div>
+                        <h2>Profil <br /></h2>
+                        <p>Suivez votre évolution, et découvrez <br /> combien de temps vous passez sur votre <br /> téléphone et vos applications</p>
+                    </div>
+                    <div>
+                        <div>image</div>
+                        <h2>Récompenses<br /></h2>
+                        <p>Restez motivés et tentez de décrocher <br /> tous les badges en relevant tous les défis.</p>
+                    </div>
+                    <div>
+                        <div>image</div>
+                        <h2>Parrainage <br /></h2>
+                        <p>Aidez vos amis à se déconnecter eux aussi.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+
+                <div class="blocCenter"><img src="/img/iphone.png" width="325px" height="661px"></div>
+
+            </div>
+            <div class="col-lg-4 fonctionnality">
+                <div class="blocRight">
+                    <div>
+                        <div>image</div>
+                        <h2>Événement<br /></h2>
+                        <p>Déconnectez vous un instant pour partir à l’aventure  grâce à des réductions sur de <br /> nombreux événements</p>
+                    </div>
+                    <div>
+                        <div>image</div>
+                        <h2>Conseils<br /></h2>
+                        <p>Chaque Matin recevez une pushline, <br />votre conseil quotidien.</p>
+                    </div>
+                    <div>
+                        <div>image</div>
+                        <h2>Social</h2>
+                        <p>Partagez votre progression et vos succès <br/> avec vos amis partout où vous voulez</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Featurette -->
+        <div class="featurette contact">
+            <div class="col-lg-4">
+                <img class="featurette-image img-responsive pull-left" src="http://placehold.it/500x500">
+            </div>
+            <p class="col-lg-8">
+                <h1 class="heading-contact">DEVENEZ LE PREMIER PUSHER </h1>
+                <p class="texte-contact">Inscrivez-vous pour essayer la version Beta de l’application</p>
+                <div class="beta-form">
+                    {% for flashMessage in app.session.flashbag.get('success') %}
+                        <p>
+                            {{ flashMessage }}
+                        </p>
+                    {% endfor %}
+                    {% if form_errors(betaForm.mail) %}
+                        <div class="alert alert-danger">
+                            {{ form_errors(betaForm.mail) }}
+                        </div>
+                    {% endif %}
+                        {{ form_start(betaForm, { 'attr': {'class' : 'form-inline'} }) }}
+                        <div class="form-group">
+                            <div class="input-group">
+                                {{ form_errors(betaForm.mail) }}
+                                {{ form_widget(betaForm.mail, { 'attr':  {
+                                    'class': 'form-control'
+                                }}) }}
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">SUBMIT WSH</button>
+                    {{ form_end(betaForm) }}
+                </div>
+            </div>
+
+
+        </div>
+    <!-- /.container -->
+{% endblock %}

@@ -3,15 +3,10 @@
 {% block content %}
     <h2 class="text-center">Editer un profil</h2>
     {% for flashMessage in app.session.flashbag.get('success') %}
-        <div class="alert alert-success">
+        <p>
             {{ flashMessage }}
-        </div>
+        </p>
     {% endfor %}
-    {% if form_errors(userForm.password.first) %}
-        <div class="alert alert-danger">
-            {{ form_errors(userForm.password.first) }}
-        </div>
-    {% endif %}
     <div class="well">
         {{ form_start(userForm, { 'attr': {'class' : 'form-horizontal'} }) }}
         <div class="form-group">

@@ -34,7 +34,7 @@ class Beta
         $this->id = $id;
     }
 
-    public function getEmail()
+    public function getMail()
     {
         return $this->mail;
     }

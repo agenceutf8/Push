@@ -8,26 +8,29 @@
 
 namespace Push\DAO;
 
-use Doctrine\DBAL\Connection;
 use Push\Domain\Beta;
 
 class BetaDAO extends DAO
 {
-    /*
-     * Database connection
-     *
-     * @var \Doctrine\DBAL\Connection
-     */
-    private $db;
-
     /**
-     * Constructor
+     * Saves a beta into the database.
      *
-     * @param \Doctrine\DBAL\Connection The database connection object
+     * @param \Push\Domain\Beta $user The user to save
      */
-    public function __construct(Connection $db)
-    {
-        $this->db = $db;
+    public function save(Beta $beta) {
+        $betaData = array(
+            'beta_mail' => $beta->getMail()
+        );
+
+        if ($beta->getId()) {
+            
+        } else {
+            // The user has never been saved : insert it
+            $this->getDb()->insert('p_beta', $betaData);
+            // Get the id of the newly created user and set it on the entity.
+            $id = $this->getDb()->lastInsertId();
+            $beta->setId($id);
+        }
     }
 
     /**
@@ -37,7 +40,7 @@ class BetaDAO extends DAO
      */
     public function findAll(){
         $sql = "select * from p_beta order by beta_id";
-        $result = $this->db->fetchAll($sql);
+        $result = $this->getDb()->fetchAll($sql);
 
         //Convert query result to an array of domain objects
         $beta_mails = array();

@@ -6,7 +6,7 @@ use Push\Form\Type\BetaType;
 use Push\Form\Type\UserType;
 
 // Page d'accueil
-$app->get('/', function (Request $request) use ($app) {
+$app->match('/', function (Request $request) use ($app) {
     $beta = new Beta();
     $betaForm = $app['form.factory']->create(new BetaType(), $beta);
     $betaForm->handleRequest($request);
@@ -16,7 +16,8 @@ $app->get('/', function (Request $request) use ($app) {
     }
     $betaFormView = $betaForm->createView();
     return $app['twig']->render('index.html.twig', array('betaForm' => $betaFormView));
-});
+})->bind('home');
+
 
 // Administration back-office
 $app->get('/admin', function () use ($app){
@@ -53,6 +54,10 @@ $app->match('/admin/profil/{id}/editer', function($id , Request $request) use ($
 
 //Login
 $app->get('/login', function(Request $request) use ($app) {
+    if ($app['security']->isGranted('ROLE_ADMIN')) {
+        return $app->redirect($app['url_generator']->generate('admin'));
+    }
+
     return $app['twig']->render('login.html.twig', array(
         'error'         => $app['security.last_error']($request),
         'last_username' => $app['session']->get('_security.last_username'),

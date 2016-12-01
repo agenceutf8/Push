@@ -16,7 +16,7 @@ class BetaType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('mail', 'mail');
+        $builder->add('mail', 'email');
     }
 
     public function getName()
