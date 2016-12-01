@@ -8,6 +8,13 @@ body > .container{
     margin: 0;
 }
 
+
+
+.centering {
+    float:none;
+    margin:0 auto;
+}
+
 .col-lg-12 {
     text-align: center;
     margin-bottom: 30px;
@@ -26,9 +33,18 @@ body > .container{
     font-weight: 300;
 }
 
+span {
+    font-size: 50px;
+    font-family: 'Lato', sans-serif;
+    color: #6bb0da;
+    font-weight: bold;
+    vertical-align: sub;
+}
+
 .logo {
     max-width: 100%;
-    height: auto;
+    width:135px;
+    height:165px;
 }
 
 .featurette-divider {
@@ -38,7 +54,9 @@ body > .container{
 .featurette {
     overflow: hidden;
     padding: 50px 0;
+    height:100vh;
 }
+
 
 .featurette-logo {
     overflow: hidden;
@@ -125,10 +143,97 @@ body > .container{
 .contact {
     background-color: #1b1c41;
 }
+<<<<<<< HEAD
 .beta-form{
     text-align: center;
+=======
+.content {
+    font-size: 35px;
+    line-height: 40px;
+    font-family: 'Lato', sans-serif;
+    color: #000000;
+    height: 160px;
+    overflow:hidden;
 }
 
+.visible {
+    font-weight:600;
+    overflow:hidden;
+    height:45px;
+    padding:0 40px;
+
+&:before {
+     content:'[';
+     left: 0;
+     line-height:40px;
+ }
+&:after {
+     content:']';
+     position:absolute;
+     right: 0;
+     line-height:40px;
+ }
+&:after, &:before {
+              top:0;
+              color:#16a085;
+              font-size:42px;
+              -webkit-animation-name: opacity;
+              -webkit-animation-duration: 2s;
+              -webkit-animation-iteration-count: infinite;
+              animation-name: opacity;
+              animation-duration: 2s;
+              animation-iteration-count: infinite;
+
+          }
+}
+
+
+ul {
+    margin-top:0;
+    text-align:center;
+    list-style:none;
+    -webkit-animation-name: change;
+    -webkit-animation-duration: 6s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: change;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    padding: 0;
+}
+
+ul li {
+    line-height:45px;
+    margin:0;
+}
+
+@-webkit-keyframes opacity {
+    0%, 100% {opacity:0;}
+    50% {opacity:1;}
+}
+
+@-webkit-keyframes change {
+    0%, 12%, 100% {transform:translateY(0);}
+    17%,29% {transform:translateY(-25%);}
+    34%,46% {transform:translateY(-50%);}
+    51%,63% {transform:translateY(-75%);}
+    68%,80% {transform:translateY(-50%);}
+    85%,97% {transform:translateY(-25%);}
+>>>>>>> origin/master
+}
+
+@keyframes opacity {
+    0%, 100% {opacity:0;}
+    50% {opacity:1;}
+}
+
+@keyframes change {
+    0%, 12%, 100% {transform:translateY(0);}
+    17%,29% {transform:translateY(-25%);}
+    34%,46% {transform:translateY(-50%);}
+    51%,63% {transform:translateY(-75%);}
+    68%,80% {transform:translateY(-50%);}
+    85%,97% {transform:translateY(-25%);}
+}
 @media(max-width:1200px) {
 
     .featurette-divider {
