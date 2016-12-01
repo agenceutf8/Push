@@ -7,3 +7,10 @@ create table if NOT EXISTS p_user (
     user_role varchar(50) not null
 ) engine=innodb character set utf8 collate utf8_unicode_ci;
 
+create table if NOT EXISTS p_beta (
+    beta_id integer not null primary key auto_increment,
+    beta_mail varchar(50) not null
+) engine=innodb character set utf8 collate utf8_unicode_ci;
+
+
+

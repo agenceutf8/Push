@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}Administration{% endblock %}
+{% block content %}
+	<h2 class="text-center">Page d'administration</h2>
+	<div class="row">
+		<div class="col-xs-12 col-lg-2">
+		<ul class="nav nav-pills nav-stacked">
+		  <li class="active"><a href="#main" data-toggle="tab">Tableau de bord</a></li>
+		  <li><a href="#users" data-toggle="tab" >Utilisateurs</a></li>
+		  <li><a href="{{ path('admin_logout') }}" data-toggle="tab">Logout</a></li>
+		</ul>
+			
+		</div>
+	    <div class="col-xs-12 col-lg-10">
+	    	<div class="tab-content">
+		    	<div class="tab-pane fade in active adminTable" id="main">
+		    		<div class="row">
+		    			<div class="col-xs-12 col-sm-6">
+				    		<h3>Google Analytics</h3>
+			    		</div>
+			    		<div class="col-xs-12 col-sm-6">
+			    			<h3>Participation à la bêta-test</h3>
+							{% if betas %}
+				    		<table class="table table-hover table-condensed">
+				    			<thead>
+								    <tr>
+								      <th>#</th>
+								      <th>E-mail</th>
+								    </tr>
+								</thead>
+								<!-- TODO : insérer ici le code pour l'affichage des mails utilisés -->
+								<tbody>
+									{% for beta in betas %}
+									<tr>
+										<th scope="row">{{ beta.id }}</th>
+										<td>{{ beta.mail }}</td>
+									</tr>
+									{% endfor %}
+								</tbody>
+				    		</table>
+							{% else %}
+								<div class="alert alert-warning">Pas encore d'inscrits pour la bêta.</div>
+							{% endif %}
+			    		</div>
+		    		</div>
+		    	</div>
+		    	<div class="tab-pane fade adminTable" id="users">
+			        {% if users %}
+						<table class="table table-hover table-condensed">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Nom d'utilisateur</th>
+									<th>Mail</th>
+									<th>Role</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for user in users %}
+								<tr>
+									<th scope="row">{{ user.id }}</th>
+									<td>{{ user.username }}</td>
+									<td>{{ user.mail }}</td>
+									<td>{{ user.role }}</td>
+									<td>
+										<a href="{{ path('admin_user_edit', { 'id': user.id }) }}" class="btn btn-info btn-xs" title="Editer"><span class="glyphicon glyphicon-edit"></span></a>
+
+									</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					{% else %}
+						<div class="alert alert-warning">Il n'y a aucun utilisateur.</div>
+					{% endif %}
+			    </div>
+			</div>
+	    </div>
+	</div>
+{% endblock %}
+{% block javascripts %}
+	<script>
+		(function(w,d,s,g,js,fjs){
+			g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(cb){this.q.push(cb)}};
+			js=d.createElement(s);fjs=d.getElementsByTagName(s)[0];
+			js.src='https://apis.google.com/js/platform.js';
+			fjs.parentNode.insertBefore(js,fjs);js.onload=function(){g.load('analytics')};
+		}(window,document,'script'));
+	</script>
+	<script>
+		gapi.analytics.ready(function() {
+			// Put your application code here...
+			gapi.analytics.auth.authorize({
+				container: 'auth-button',
+				clientid: CLIENT_ID,
+			});
+		});
+	</script>
+{% endblock %}
