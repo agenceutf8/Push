@@ -18,6 +18,18 @@ $app->match('/', function (Request $request) use ($app) {
     return $app['twig']->render('index.html.twig', array('betaForm' => $betaFormView));
 })->bind('home');
 
+$app->post('/ajax/{object}', function($object, Request $request) use ($app){
+	$beta = new Beta();
+	$data = $request->request->get('beta');
+	$beta->setMail($data['mail']);
+	if($object != null && $object == "beta"){
+		$app['dao.beta']->save($beta);
+		return "Success";
+	}
+	else{
+		return "Error";
+	}
+});
 
 // Administration back-office
 $app->get('/admin', function () use ($app){
@@ -28,6 +40,21 @@ $app->get('/admin', function () use ($app){
         'users' => $users
     ));
 })->bind('admin');
+
+//Envoyer les mails aux inscrits à la béta
+$app->post('/beta-mail', function(Request $request) use ($app){
+    $betas = $app['dao.beta']->findAll();
+    $arrayBeta = array();
+    foreach($betas as $beta){
+        $arrayBeta[] = $beta->getMail(); 
+    }
+    $subject = "Participation à la bêta-test de Push";
+    $app['mailer']->send(\Swift_Message::newInstance()
+        ->setSubject($subject)
+        ->setFrom(array('communication@pushapp.fr'))
+        ->setTo($arrayBeta)
+        ->setBody($app['twig']->render('beta-email.html.twig'), 'text/html'));
+});
 
 //Delete beta-mail
 $app->get('/admin/beta/{id}/delete', function ($id, Request $request) use ($app){

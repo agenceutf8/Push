@@ -1,63 +1,50 @@
 {% extends "base.html" %}
 {% block title %}L'application{% endblock %}
 {% block content %}
+    <div id="loading">
+        <img src="web/img/loader.gif" id="loader-gif">
+    </div>
+    <div id="voile">
+    </div>
     <!-- Page Content -->
-        <div class="featurette-logo">
-            <div class="col-lg-12">
-<<<<<<< HEAD
-                <img class="logo" src="/img/logo-push.png" width="135px" height="160px">
-=======
-                <img class="logo" src="/web/img/logo-push.png">
->>>>>>> origin/master
-            </div>
-        </div>
         <!-- First Featurette -->
-        <div class="featurette">
-            <div class="col-lg-5">
-                <img class="featurette-image img-responsive pull-left" src="/img/Jean-Kevin-Toilettes.png" width="500px" height="500px">
-            </div>
-
-             <div class="col-lg-7">
-                 <h1 class="featurette-heading">Il était une fois, Jean Kevin, 20 ans.</h1>
-                 <p class="texte-slide"><span>«</span> Tous les matins Jean Kevin passe 15 minutes à jouer sur <br /> Candy Crush aux toilettes et tous les matins Jean Kevin <br /> arrive avec 15 min de retard à l’école. <span>»</span></p>
-
+             <div class="featurette-content" id="featurette-retard">
+                <div class="featurette-logo">
+                    <img class="logo" src="web/img/push.png">
+                </div>
+                <div class="box-toilet" id="box-toilet">
+                    <img class="featurette-image" src="web/img/jean-kevin-toilet.png">
+                </div>    
+                <div class="featurette-text-right-1">
+                    <h1 class="featurette-heading">Il était une fois, Jean Kevin, 20 ans.</h1>
+                    <p class="texte-slide"><span>«</span> Tous les matins Jean Kevin passe 15 minutes à jouer sur <br /> Candy Crush aux toilettes et tous les matins Jean Kevin <br /> arrive avec 15 min de retard à l’école. <span>»</span></p>
+                 </div>
              </div>
-        </div>
-        <hr class="featurette-divider">
-
         <!-- Second Featurette -->
-        <div class="featurette">
-            <div class="col-lg-7">
-                <h1 class="featurette-heading">50 repas, 50 photos !</h1>
-                <p class="texte-slide"><span>«</span> Tous les midis Jean Kevin prend une photo de son <br /> repas, et un midi le téléphone de Jean Kevin lui glisse <br /> des mains. <span>»</span></p>
+            <div class="featurette-content" id="featurette-repas">
+                <div class="featurette-text-left">
+                    <h1 class="featurette-heading">50 repas, <span class="compteur-repas">0</span> photos !</h1>
+                    <p class="texte-slide"><span>«</span> Tous les midis Jean Kevin prend une photo de son <br /> repas, et un midi le téléphone de Jean Kevin lui glisse <br /> des mains. <span>»</span></p>
+                </div>
+                <div class="repas-image">
+                    <img class="featurette-image-right" src="web/img/repas-instagram.gif">
+                </div>
             </div>
-            <div class="col-lg-5">
-                <img class="featurette-image img-responsive pull-right" src="/img/telephone-slide2.png" width="500px" height="500px">
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-
         <!-- Third Featurette -->
-        <div class="featurette">
-            <div class="col-lg-5">
-                <img class="featurette-image img-responsive pull-left" src="/img/repas-de-famille.png" width="500px" height="500px">
+        <div class="featurette-content">
+            <div class="repas-image">
+                <img class="featurette-image diner" src="web/img/repas-diner.gif">
             </div>
-            <div class="col-lg-7">
+            <div class="featurette-text-right-family">
                 <h1 class="featurette-heading">Repas de Famille</h1>
                 <p class="texte-slide"><span>«</span> Tous les soirs Jean Kevin mange avec ses Parents, <br /> mais trop occupé à envoyer des emojis à ses potes,<br /> il ne leur adresse même pas la parole. <span>»</span></p>
             </div>
 
         </div>
-
-        <hr class="featurette-divider">
-
         <!-- Four Featurette -->
-        <div class="featurette">
-            <div class="col-lg-5">
-                <img class="featurette-image img-responsive pull-right" src="/web/img/Jean-Kevin.png" width="500px" height="500px">
-            </div>
-            <div class="col-lg-7 vcenter">
+        <div class="featurette-content">
+                <img class="featurette-image-transition no" src="web/img/Jean-Kevin.png">
+            <div class="featurette-text-right">
                 <h1 class="featurette-heading">En moyenne Jean Kevin passe 8h <br />de sa journée sur son téléphone. </h1>
                 <div class='content'>
                     <p class="texte-slide transition">
@@ -65,108 +52,146 @@
                     </p>
                     <div class='visible'>
 
-                        <ul>
-                            <li>Paris/New-York </li>
-                            <li>960 cookies avec ses amis</li>
-                            <li>5 matchs de foot en ligue 1 </li>
-                            <li>69 speed dating</li>
+                        <ul class="slider-list">
+                            <li>Paris/New-York <i class="fa fa-plane" aria-hidden="true"></i></li>
+                            <li>960 cookies avec ses amis <i class="fa fa-cutlery" aria-hidden="true"></i></li>
+                            <li>5 matchs de foot en ligue 1 <i class="fa fa-futbol-o" aria-hidden="true"></i></li>
+                            <li>69 speed dating <i class="fa fa-heart" aria-hidden="true"></i></li>
                         </ul>
                     </div>
                 </div>
                 <p class="texte-slide">SOUHAITEZ-VOUS ÊTRE COMME JEAN KEVIN ?</p>
-                <button type="submit" class="btn btn-default">Oui</button> <button type="submit" class="btn btn-default">Non</button>
+                <button type="submit" class="btn-help btn-yes btn-default" data-attribute="yes"></button> <button type="submit" class="btn-help btn-no btn-default" data-attribute="no"></button>
             </div>
-<<<<<<< HEAD
-            <div class="col-lg-5 vcenter">
-                <img class="featurette-image img-responsive pull-right" src="/img/Jean-Kevin.png" width="500px" height="500px">
-            </div>
-=======
->>>>>>> origin/master
         </div>
-
         <!-- Five Featurette -->
-        <div class="featurette application">
-            <div class="col-lg-12">
-                <h1 class="Title-application">Grâce à vous Jean Kevin à découvert l'application "PUSH"</h1>
-                <button class="btn btn-default btn-xs" ><a href="#"> LIEN VIDEO </a></button>
+        <div class="featurette-content application" id="application">
+            <div class="title-application">
+                <h1 class="Title-application no">Grâce à vous Jean Kevin à découvert l'application "PUSH"</h1>
+                <h1 class="noweb mob Title-application">Grâce à vous Jean Kevin <br /> à découvert l'application "PUSH"</h1>
             </div>
-            <div class="col-lg-4 fonctionnality">
-                <div class="blocLeft">
+            
+            <div class="boite_trois_colonnes">
+                <div class="contenant_colonne_gauche">
                     <div>
-                        <h2>Profil <br /></h2>
+                        <div class="bloc-icone"><h2>Profil</h2> <img class="icone" src="web/img/profil.svg" alt="profil"></div>
                         <p>Suivez votre évolution, et découvrez <br /> combien de temps vous passez sur votre <br /> téléphone et vos applications</p>
                     </div>
                     <div>
-                        <h2>Récompenses<br /> </h2>
+                        <div class="bloc-icone"><h2>Récompenses</h2> <img class="icone" src="web/img/recompense.svg" alt="recompense"></div>
                         <p>Restez motivés et tentez de décrocher <br /> tous les badges en relevant tous les défis.</p>
                     </div>
                     <div>
-                        <h2>Parrainage <br /> </h2>
+                        <div class="bloc-icone"><h2>Parrainage</h2> <img class="icone-parrain" src="web/img/parrain.svg" alt="parrain"></div>
                         <p>Aidez vos amis à se déconnecter eux aussi.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-
-<<<<<<< HEAD
-                <div class="blocCenter"><img src="/img/iphone.png" width="325px" height="661px"></div>
-=======
-                <div class="blocCenter"><img src="/web/img/iphone.png" width="189px" height="362px"></div>
->>>>>>> origin/master
-
-            </div>
-            <div class="col-lg-4 fonctionnality">
-                <div class="blocRight">
+                    </div>  
+                </div>              
+                <div class="contenant_colonne_droite">
                     <div>
-                        <h2>Événement<br /></h2>
-                        <p>Déconnectez vous un instant pour partir à l’aventure  grâce à des réductions sur de <br /> nombreux événements</p>
+                        <div class="bloc-icone"><img class="icone-parrain"src="web/img/evenement.svg" alt="evenement"> <h2>Événements</h2></div>
+                        <p>Déconnectez vous un instant pour partir à <br /> l’aventure  grâce à des réductions sur de <br /> nombreux événements</p>
                     </div>
                     <div>
-                        <h2>Conseils<br /></h2>
+                        <div class="bloc-icone"><img class="icone" src="web/img/conseil.svg" alt="conseils"> <h2>Conseils</h2></div>
                         <p>Chaque Matin recevez une pushline, <br />votre conseil quotidien.</p>
                     </div>
                     <div>
-                        <h2>Social</h2>
+                        <div class="bloc-icone"><img class="icone" src="web/img/communaute.svg" alt="communaute"> <h2>Social</h2></div>
                         <p>Partagez votre progression et vos succès <br/> avec vos amis partout où vous voulez</p>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Contact Featurette -->
-        <div class="featurette contact">
-            <div class="col-lg-4">
-                <img class="featurette-image img-responsive pull-right" src="/web/img/Jean-Kevin.png" width="500px" height="500px">
-            </div>
-            <p class="col-lg-8">
-                <h1 class="heading-contact">DEVENEZ LE PREMIER PUSHER </h1>
-                <p class="texte-contact">Inscrivez-vous pour essayer la version Beta de l’application</p>
-                <div class="beta-form">
-                    {% for flashMessage in app.session.flashbag.get('success') %}
-                        <p>
-                            {{ flashMessage }}
-                        </p>
-                    {% endfor %}
-                    {% if form_errors(betaForm.mail) %}
-                        <div class="alert alert-danger">
-                            {{ form_errors(betaForm.mail) }}
-                        </div>
-                    {% endif %}
-                        {{ form_start(betaForm, { 'attr': {'class' : 'form-inline'} }) }}
-                        <div class="form-group">
-                            <div class="input-group">
-                                {{ form_errors(betaForm.mail) }}
-                                {{ form_widget(betaForm.mail, { 'attr':  {
-                                    'class': 'form-control'
-                                }}) }}
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">SUBMIT WSH</button>
-                    {{ form_end(betaForm) }}
+                <div class="contenant_colonne_centre">
+                    <ul class="slider-iphone">
+                        <li><img src="web/img/iphone-1.jpg" alt="iphone 1"></li>
+                        <li><img src="web/img/iphone-2.jpg" alt="iphone 2"></li>
+                        <li><img src="web/img/iphone-3.jpg" alt="iphone 3"></li>
+                        <li><img src="web/img/iphone-4.jpg" alt="iphone 4"></li>
+                    </ul>
                 </div>
             </div>
+            <div class="btn-video">
+                <a href="#"><img src="web/img/video.png"></a>
+            </div>
+        </div>    
+        <!-- Contact Featurette -->
+        <div class="featurette-content contact" id="contact">
+                <img class="featurette-image-contact no" src="web/img/jk-bleu.png">
+                <div class="featurette-text">        
+                    <h1 class="heading-contact">DEVENEZ LE PREMIER PUSHER </h1>
+                    <p class="texte-contact">Inscrivez-vous pour essayer la version Beta de l’application</p>
+                    <p id="beta-success"></p>
+                    <div class="beta-form">
+                        {% for flashMessage in app.session.flashbag.get('success') %}
+                            <p>
+                                {{ flashMessage }}
+                            </p>
+                        {% endfor %}
+                        {% if form_errors(betaForm.mail) %}
+                            <div class="alert alert-danger">
+                                {{ form_errors(betaForm.mail) }}
+                            </div>
+                        {% endif %}
+                            {{ form_start(betaForm, { 'attr': {'class' : 'form-inline', 'id':'beta-register'} }) }}
+                            <div class="form-group">
+                                <div class="input-group">
+                                    {{ form_errors(betaForm.mail) }}
+                                    {{ form_widget(betaForm.mail, { 'attr':  {
+                                        'class': 'form-control',
+                                        'placeholder':'Envoyer votre email'
+                                    }}) }}
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="btn-beta">&nbsp;</button>
+                        {{ form_end(betaForm) }}
+                    </div>
+                    
 
+                    <div class="block-rs">
+                        <a href="https://www.facebook.com/pushappli/?fref=ts" target="_blank"><img class="facebook" src="web/img/facebook.jpg"></a>
+                        <a href="https://twitter.com/push_appli" target="_blank"><img class="twitter" src="web/img/twitter.jpg"></a>
+                        <div class="box">
+                            <a class="button" href="#popup1"><img class="snapchat" src="web/img/snapchat.jpg"></a>
+                        </div>
 
+                        <div id="popup1" class="overlay">
+                            <div class="popup">
+                                <a class="close" href="#contact">&times;</a>
+                                <div class="content-popup">
+                                    <img src="web/img/qrcode-snapchat.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <div class="mentions-legales">
+            {% include('mentions-legales.html.twig') %}
+        </div>
+        <div class="cgu">
+            {% include('conditions-utilisations.html.twig') %}
         </div>
     <!-- /.container -->
+{% endblock %}
+{% block javascripts %}
+	<script>
+	    (function(h,o,t,j,a,r){
+	        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	        h._hjSettings={hjid:353095,hjsv:5};
+	        a=o.getElementsByTagName('head')[0];
+	        r=o.createElement('script');r.async=1;
+	        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	        a.appendChild(r);
+	    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-88158102-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script src="web/js/main.js" type="text/javascript" charset="utf-8" async defer></script>
 {% endblock %}
