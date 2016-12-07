@@ -3,10 +3,20 @@
 {% block stylesheets %}
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style type="text/css">
+		.admin-row{
+			min-height: 100vh;
+		}
+		.footer{
+			margin-top: 20px;
+			display: block;
+			height: 60px;
+		}
+	</style>
 {% endblock %}
 {% block content %}
 	<h2 class="text-center">Page d'administration</h2>
-	<div class="row">
+	<div class="admin-row">
 		<div class="col-xs-12 col-lg-2">
 		<ul class="nav nav-pills nav-stacked">
 		  <li class="active"><a href="#main" data-toggle="tab">Tableau de bord</a></li>
@@ -20,7 +30,7 @@
 		    	<div class="tab-pane fade in active adminTable" id="main">
 		    		<div class="row">
 		    			<div class="col-xs-12 col-sm-6">
-				    		<h3>Google Analytics</h3>
+				    		<h3>Nombre d'utilisateurs</h3>
 							<section id="auth-button"></section>
 							<section id="timeline"></section>
 			    		</div>
@@ -34,7 +44,6 @@
 								      <th>E-mail</th>
 								    </tr>
 								</thead>
-								<!-- TODO : insérer ici le code pour l'affichage des mails utilisés -->
 								<tbody>
 									{% for beta in betas %}
 									<tr>
@@ -48,6 +57,12 @@
 								<div class="alert alert-warning">Pas encore d'inscrits pour la bêta.</div>
 							{% endif %}
 			    		</div>
+		    		</div>
+		    		<div class="row">
+		    			<div class="colxs-12 col-sm-12">
+		    				<h3>Sources des utilisateurs</h3>
+		    				<section id="usersFrom"></section>
+						</div>
 		    		</div>
 		    	</div>
 		    	<div class="tab-pane fade adminTable" id="users">
@@ -124,9 +139,25 @@
 				    }
 				  });
 
+			var usersFrom = new gapi.analytics.googleCharts.DataChart({
+					reportType :'ga',
+					query: {
+						'dimensions': 'ga:source',
+						'metrics': 'ga:users',
+						'start-date': '30daysAgo',
+						'end-date': 'yesterday',
+						'ids': 'ga:134830503'
+					},
+					chart: {
+						'type': 'TABLE',
+						'container': 'usersFrom'
+					}
+			});
+
 			 gapi.analytics.auth.on('success', function(response) {
 			    document.querySelector("#auth-button").style.display='none';
 			    timeline.execute();
+			    usersFrom.execute();
 			  });
 			  
 		});

@@ -7,8 +7,9 @@
     <div id="voile">
     </div>
     <!-- Page Content -->
+    <div id="story">
         <!-- First Featurette -->
-             <div class="featurette-content" id="featurette-retard">
+             <div class="featurette-content active" id="featurette-retard">
                 <div class="featurette-logo">
                     <img class="logo" src="web/img/push.png">
                 </div>
@@ -16,7 +17,7 @@
                     <img class="featurette-image" src="web/img/jean-kevin-toilet.png">
                 </div>    
                 <div class="featurette-text-right-1">
-                    <h1 class="featurette-heading">Il était une fois, Jean Kevin, 20 ans.</h1>
+                    <h1 class="featurette-heading">Il était une fois, Jean Kevin, 20 ans</h1>
                     <p class="texte-slide"><span>«</span> Tous les matins Jean Kevin passe 15 minutes à jouer sur <br /> Candy Crush aux toilettes et tous les matins Jean Kevin <br /> arrive avec 15 min de retard à l’école. <span>»</span></p>
                  </div>
              </div>
@@ -31,21 +32,21 @@
                 </div>
             </div>
         <!-- Third Featurette -->
-        <div class="featurette-content">
-            <div class="repas-image">
-                <img class="featurette-image diner" src="web/img/repas-diner.gif">
-            </div>
-            <div class="featurette-text-right-family">
-                <h1 class="featurette-heading">Repas de Famille</h1>
-                <p class="texte-slide"><span>«</span> Tous les soirs Jean Kevin mange avec ses Parents, <br /> mais trop occupé à envoyer des emojis à ses potes,<br /> il ne leur adresse même pas la parole. <span>»</span></p>
-            </div>
+            <div class="featurette-content" id="featurette-diner">
+                <div class="repas-image">
+                    <img class="featurette-image diner" src="web/img/repas-diner.gif">
+                </div>
+                <div class="featurette-text-right-family">
+                    <h1 class="featurette-heading">Repas de Famille</h1>
+                    <p class="texte-slide"><span>«</span> Tous les soirs Jean Kevin mange avec ses Parents, <br /> mais trop occupé à envoyer des emojis à ses potes,<br /> il ne leur adresse même pas la parole. <span>»</span></p>
+                </div>
 
-        </div>
+            </div>
         <!-- Four Featurette -->
-        <div class="featurette-content">
+        <div class="featurette-content" id="featurette-transition">
                 <img class="featurette-image-transition no" src="web/img/Jean-Kevin.png">
             <div class="featurette-text-right">
-                <h1 class="featurette-heading">En moyenne Jean Kevin passe 8h <br />de sa journée sur son téléphone. </h1>
+                <h1 class="featurette-heading">En moyenne Jean Kevin passe 8h <br />de sa journée sur son téléphone </h1>
                 <div class='content'>
                     <p class="texte-slide transition">
                         En 8h Jean Kevin aurait pu faire :
@@ -60,15 +61,16 @@
                         </ul>
                     </div>
                 </div>
-                <p class="texte-slide">SOUHAITEZ-VOUS ÊTRE COMME JEAN KEVIN ?</p>
-                <button type="submit" class="btn-help btn-yes btn-default" data-attribute="yes"></button> <button type="submit" class="btn-help btn-no btn-default" data-attribute="no"></button>
+                <img src="web/img/btn-question.png" class="question-jk">
+                <button type="submit" class="btn-help btn-default" data-attribute="yes">Oui</button> <button type="submit" class="btn-help btn-default" data-attribute="no">non</button>
             </div>
         </div>
+       
         <!-- Five Featurette -->
         <div class="featurette-content application" id="application">
             <div class="title-application">
                 <h1 class="Title-application no">Grâce à vous Jean Kevin à découvert l'application "PUSH"</h1>
-                <h1 class="noweb mob Title-application">Grâce à vous Jean Kevin <br /> à découvert l'application "PUSH"</h1>
+                <h1 class="Title-application mob noweb">Grâce à vous Jean Kevin à découvert l'application "PUSH"</h1>
             </div>
             
             <div class="boite_trois_colonnes">
@@ -79,11 +81,11 @@
                     </div>
                     <div>
                         <div class="bloc-icone"><h2>Récompenses</h2> <img class="icone" src="web/img/recompense.svg" alt="recompense"></div>
-                        <p>Restez motivés et tentez de décrocher <br /> tous les badges en relevant tous les défis.</p>
+                        <p>Restez motivés et tentez de décrocher <br /> tous les badges en relevant tous les défis</p>
                     </div>
                     <div>
                         <div class="bloc-icone"><h2>Parrainage</h2> <img class="icone-parrain" src="web/img/parrain.svg" alt="parrain"></div>
-                        <p>Aidez vos amis à se déconnecter eux aussi.</p>
+                        <p>Aidez vos amis à se déconnecter eux aussi</p>
                     </div>  
                 </div>              
                 <div class="contenant_colonne_droite">
@@ -93,7 +95,7 @@
                     </div>
                     <div>
                         <div class="bloc-icone"><img class="icone" src="web/img/conseil.svg" alt="conseils"> <h2>Conseils</h2></div>
-                        <p>Chaque Matin recevez une pushline, <br />votre conseil quotidien.</p>
+                        <p>Chaque matin recevez une pushline, <br />votre conseil quotidien</p>
                     </div>
                     <div>
                         <div class="bloc-icone"><img class="icone" src="web/img/communaute.svg" alt="communaute"> <h2>Social</h2></div>
@@ -110,7 +112,7 @@
                 </div>
             </div>
             <div class="btn-video">
-                <a href="#"><img src="web/img/video.png"></a>
+                <a href="https://www.youtube.com/watch?v=ckBdTshW03E" target="_blank">Venez voir notre vidéo </a>
             </div>
         </div>    
         <!-- Contact Featurette -->
@@ -137,7 +139,7 @@
                                     {{ form_errors(betaForm.mail) }}
                                     {{ form_widget(betaForm.mail, { 'attr':  {
                                         'class': 'form-control',
-                                        'placeholder':'Envoyer votre email'
+                                        'placeholder':'Envoyez votre email'
                                     }}) }}
                                 </div>
                             </div>
@@ -165,12 +167,14 @@
                 </div>  
             </div>
         </div>
+    </div>     
         <div class="mentions-legales">
             {% include('mentions-legales.html.twig') %}
         </div>
         <div class="cgu">
             {% include('conditions-utilisations.html.twig') %}
         </div>
+
     <!-- /.container -->
 {% endblock %}
 {% block javascripts %}
